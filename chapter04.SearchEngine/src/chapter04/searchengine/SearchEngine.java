@@ -6,4 +6,5 @@ public interface SearchEngine {
 	List<String> search(String query);
 	List<String> searchImage(String query);
 	
+	
 }
