@@ -32,7 +32,7 @@ public class AirvideoController {
 	
 	@RequestMapping(value = "/airvideo", method = RequestMethod.GET)
 	public String airvideo(@RequestParam("location") String location, ModelMap model) {
-		AVClient client = new AVClient("air.onlink.kr",10011,"0543");
+		AVClient client = new AVClient("127.0.0.1",10011,"0543");
 		AVFolder dir = null;
 		AVFolder pwd = null;
 		

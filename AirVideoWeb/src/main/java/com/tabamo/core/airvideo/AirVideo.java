@@ -75,7 +75,7 @@ public class AirVideo {
 //			e.printStackTrace();
 //		}
 
-		AVClient client = new AVClient("air.onlink.kr",10011,"0543");
+		AVClient client = new AVClient("127.0.0.1",10011,"0543");
 		
 		
 		AVFolder pwd = new AVFolder(client, "root", "6b95f36b-fc26-4e3f-bb53-819e06501d4d\1. íë\1. ë°©ìì¤").cd();
