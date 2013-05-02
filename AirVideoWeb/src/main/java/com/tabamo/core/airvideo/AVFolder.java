@@ -1,5 +1,7 @@
 package com.tabamo.core.airvideo;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class AVFolder extends AVResource {
@@ -11,13 +13,17 @@ public class AVFolder extends AVResource {
 		} else {
 			this.location = "/" + location;			
 		}
+		
+		
 	}
 	
-	AVFolder cd () {
+	public AVFolder cd () {
 		return this.server.cd(this);
 	}
 	
-	ArrayList<AVResource> ls () {
+	public ArrayList<AVResource> ls () {
 		return this.server.ls(this);
 	}
+	
+	
 }

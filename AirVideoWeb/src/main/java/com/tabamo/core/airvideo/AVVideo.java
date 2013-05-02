@@ -8,8 +8,26 @@ public class AVVideo extends AVResource {
 	AVMap videoStream;
 	AVMap audioStream;
 	AVMap streams;
+	String _url;
+	String _liveUrl;
 	
-	AVVideo (AVClient server, String name, String location, AVMap detail) {
+	public String get_url() {
+		return _url;
+	}
+
+	public void set_url(String _url) {
+		this._url = _url;
+	}
+
+	public String get_liveUrl() {
+		return _liveUrl;
+	}
+
+	public void set_liveUrl(String _liveUrl) {
+		this._liveUrl = _liveUrl;
+	}
+
+	public AVVideo (AVClient server, String name, String location, AVMap detail) {
 		this.server = server;
 		this.name = name;
 		this.location = "/" + location;
@@ -58,7 +76,7 @@ public class AVVideo extends AVResource {
 		Integer index = (Integer)stream.get("index");
 	}
 	
-	URL url () {
+	public URL url () {
 		try {
 			return server.getUrl(this, false);
 		}
@@ -67,7 +85,16 @@ public class AVVideo extends AVResource {
 		}
 	}
 	
-	URL live_url () {
+	public URL url (String location) {
+		try {
+			return server.getUrl(location, false);
+		}
+		catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public URL live_url () {
 		try {
 			return server.getUrl(this, true);
 		}

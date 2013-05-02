@@ -75,16 +75,15 @@ public class AirVideo {
 //			e.printStackTrace();
 //		}
 
-		AVClient client = new AVClient("air.onlink.kr",10011,"1379");
+		AVClient client = new AVClient("air.onlink.kr",10011,"0543");
 		
 		
-		AVFolder pwd = new AVFolder(client, "root", null);
-		ArrayList <AVResource> items = client.ls(pwd);
-		
-		System.out.println(items.get(0) instanceof AVFolder);
+		AVFolder pwd = new AVFolder(client, "root", "6b95f36b-fc26-4e3f-bb53-819e06501d4d\1. íë\1. ë°©ìì¤").cd();
+		ArrayList <AVResource> items = pwd.ls();
 		
 		System.out.println(items.size());
 		AVFolder folder = (AVFolder)items.get(0);
+		ArrayList <AVResource> items1 = folder.ls();
 		
 		System.out.println(folder.location);
 		System.out.println(folder.name);

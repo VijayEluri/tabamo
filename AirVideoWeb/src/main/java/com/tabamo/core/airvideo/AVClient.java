@@ -130,6 +130,29 @@ public class AVClient {
 		return contentURL;
 	}
 	
+	public URL getUrl(String location, boolean live) throws MalformedURLException {
+		AVMap packet;
+		URL contentURL;
+		AVMap result;
+		ArrayList<Object> parameters = new ArrayList<Object>();
+		String method;
+		String service;
+		if (live) {
+			//parameters.add(conversionSettings(video));
+			service = "livePlaybackService";
+			method = "initLivePlayback";
+		} else {
+			//parameters.add(location.substring(1));
+			parameters.add(location);
+			service = "playbackService";
+			method = "initPlayback";
+		}
+		packet = request(service, method, parameters);
+		result = (AVMap) packet.get("result");
+		contentURL = new URL((String)result.get("contentURL"));
+		return contentURL;
+	}
+	
 	public AVMap getDetails(Object item) {
 		ArrayList <String> items = new ArrayList<String> ();
 		if (item instanceof AVVideo) {
